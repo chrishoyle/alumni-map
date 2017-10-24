@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <script type="text/javascript" src='js/sheetsee.js'></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
+        <script src='https://api.tiles.box.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
         <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
         <link href='https://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic'>
@@ -17,6 +17,7 @@
         <link media="screen" rel="stylesheet" type="text/css" href="css/site.css">
     </head>
 <body>
+    <div class="container">
     <div id="wrapper">
         <h1><u>W&M Alumni Startups</u></h1>
       
@@ -30,7 +31,7 @@
             </div>
             <div id="map"></div>
         </div>
-        <div class="row">
+     
             <div class="col-lg-6">
         
                 <input id="tableFilter" type="text" class="form-control" placeholder="Search for...">
@@ -38,10 +39,11 @@
                 <span class="noMatches">no matches</span>
 
             </div>
-        </div>
+
         <div class="container">
             <div id="alumniTable"></div>
         </div>
+    </div>
 
     <script id="alumniTable" type="text/html">
         <table class="table table-hover">
@@ -94,22 +96,19 @@
             <ul>
                 <li>
                     <a id="angellist" href="https://angel.co/{{company}}" target="_blank"><i class="fa fa-angellist fa-2x"></i></a>
-                    
+                    <a id="link" href="{{website}}" target="_blank"><i class="fa fa-link fa-2x"></i></a>
                 </li>
             </ul>
         {{/rows}}
     </script>
 
     <script type="text/javascript">
-   
 
         document.addEventListener('DOMContentLoaded', function() {
             var gData
             var URL = "1rcXF17V1Fq_z6-7tfirM095dLtd5gLsGpLhz6yhxvBo"
                 Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true })
         })
-
-
 
         function showInfo(gData) {
             tableOptions = {

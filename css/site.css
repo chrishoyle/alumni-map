@@ -3,20 +3,17 @@
 #map {height: 400px; max-width: 530px; min-width: 300px; background: #DADADA; }
 #map a {border: none;}
 h1{padding-bottom: 50px;}
-u {
-text-decoration: none;
-border-bottom: 4px solid black;
-}​
+u {text-decoration: none;border-bottom: 4px solid black;}​
 
-.container {margin: 10px 0px;}
+.container {margin: 0px 0px;}
+#tableFilter{margin-top: 20px;}
 
 
-
-#wrapper {margin: 0px auto; max-width: 900px; padding-top: 40px; /*margin-left: 250px;*/}
+#wrapper {margin: 0px auto; max-width: 900px; padding-top: 40px; margin-left: 40px;}
 
 .leaflet-popup-content h2 {font-family: Lato; font-size: 14px; text-transform: uppercase;}
 
-#rightSide {height: 400px; max-width: 350px; width: 100%; float: right; padding-top: 5px;}
+#rightSide {height: 400px; max-width: 350px; width: 100%; float: right; padding-top: 5px;margin-right: 70px;}
 #selectedSpot {display: none;}
 #latestSpot ul, #selectedSpot ul {list-style: none; margin-top: 12px 0px; padding: 0px;}
 .category {text-transform: uppercase; font-size: 9px; letter-spacing: .2em; padding-right: 6px;}
