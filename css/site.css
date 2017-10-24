@@ -10,17 +10,46 @@ u {text-decoration: none;border-bottom: 4px solid black;}​
 
 
 #wrapper {margin: 0px auto; max-width: 900px; padding-top: 40px; margin-left: 40px;}
-
+.scroll {height: 600px;overflow: auto;display: inline-block;}
 .leaflet-popup-content h2 {font-family: Lato; font-size: 14px; text-transform: uppercase;}
 
 #rightSide {height: 400px; max-width: 350px; width: 100%; float: right; padding-top: 5px;margin-right: 70px;}
 #selectedSpot {display: none;}
 #latestSpot ul, #selectedSpot ul {list-style: none; margin-top: 12px 0px; padding: 0px;}
-.category {text-transform: uppercase; font-size: 9px; letter-spacing: .2em; padding-right: 6px;}
+.noMatches {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}
 
 #info p {font-size: 14px; padding: 4px; line-height: 19px; font-weight: 300;}
 #info {border-top: 4px #F8F8F8 solid;}
+.button:hover {cursor: hand;}
+table:hover {cursor: hand;}
+input:focus {outline: none;}
+thead{
+	display: table-header-group;
+}
+table {
+    width: 90%;
+    table-layout: fixed;
 
+}
+td{ 
+	word-wrap:break-word;
 
+}
+tr {
+	width: 90%;
+	display: inline-table;
+	height:80px;
+	table-layout: fixed;
+  
+}
 
-
+table{
+ height:300px; 
+ display: -moz-groupbox;
+}
+tbody{
+  overflow-y: scroll;
+  width: 80%;
+  height: 500px;
+  position: absolute;
+}

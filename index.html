@@ -8,12 +8,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <script type="text/javascript" src='js/sheetsee.js'></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script src='https://api.tiles.box.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
-        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
+       
         <link href='https://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic'>
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700'>
-        <link media="screen" rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- <link media="screen" rel="stylesheet" type="text/css" href="css/style.css"> -->
         <link media="screen" rel="stylesheet" type="text/css" href="css/site.css">
     </head>
 <body>
@@ -34,7 +33,7 @@
      
             <div class="col-lg-6">
         
-                <input id="tableFilter" type="text" class="form-control" placeholder="Search for...">
+                <input id="tableFilter" type="text" class="form-control" placeholder="Search ...">
            
                 <span class="noMatches">no matches</span>
 
@@ -46,34 +45,40 @@
     </div>
 
     <script id="alumniTable" type="text/html">
-        <table class="table table-hover">
-            <tr>
-                <th class="tHeader">Logo</th>
-                <th class="tHeader">Startup</th>
-                <th class="tHeader">Founder</th>
-                <th class="tHeader">Graduation Year</th>
-                <th class="tHeader">City</th>
-                <th class="tHeader">State</th>
-                <th class="tHeader">Industry</th>
-                <th class="">Links</th>
-                <th class=""></th></tr>
-            {{#rows}}
-                <tr id="{{rowNumber}}" class="spotRow">
-                    <td><img src={{logo}} height="42" width="42"></td>
-                    <td>{{company}}</td>
-                    <td>{{alumni}}</td>
-                    <td>{{year}}</td>
-                    <td>{{city}}</td>
-                    <td>{{state}}</td>
-                    <td>{{industry}}</td>
-                    <td>
-                         <a id="angellist" href="https://angel.co/{{company}}" target="_blank"><i class="fa fa-angellist fa-2x"></i></a>
-                         </td><td>
-                         <a id="link" href="{{website}}" target="_blank"><i class="fa fa-link fa-2x"></i></a>
-                    </td>
+    
+            <table class="table table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th style="width: 10%">Logo</th>
+                    <th style="width: 10%">Startup</th>
+                    <th style="width: 10%">Founder</th>
+                    <th style="width: 15%">Graduation Year</th>
+                    <th style="width: 15%">City</th>
+                    <th style="width: 10%">State</th>
+                    <th style="width: 10%">Industry</th>
+                    <th style="width: 10%">Links</th>
                 </tr>
-            {{/rows}}
-        </table>
+                </thead>
+                <tbody>
+                {{#rows}}
+                    <tr id="{{rowNumber}}" class="spotRow">
+                        <td style="width: 10%"><img src={{logo}} height="42" width="42"></td>
+                        <td style="width: 10%">{{company}}</td>
+                        <td style="width: 10%">{{alumni}}</td>
+                        <td style="width: 15%">{{year}}</td>
+                        <td style="width: 15%">{{city}}</td>
+                        <td style="width: 10%">{{state}}</td>
+                        <td style="width: 10%">{{industry}}</td>
+                        <td style="width: 10%">
+                             <a id="angellist" href="https://angel.co/{{company}}" target="_blank"><i class="fa fa-angellist fa-2x"></i></a>
+                          
+                             <a id="link" href="{{website}}" target="_blank"><i class="fa fa-link fa-2x"></i></a>
+                        </td>
+                    </tr>
+                {{/rows}}
+                </tbody>
+            </table>
+    
     </script>
 
     <script id="theNumberofSpots" type="text/html">
@@ -87,11 +92,11 @@
             <p class="colorText">{{founder}}<p>
             <p class="colorText">{{city}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
             <ul>
-                <li><span class="category">Alumni:</span> {{alumni}}</li>
-                <li><span class="category">Major:</span> {{major}}</li>
-                <li><span class="category">Grad. Year:</span> {{year}}</li>
-                <li><span class="category">Industry:</span> {{industry}}</li>
-                <li><span class="category">Description:</span> {{description}}</li>
+                <li><u>Alumni:</u> {{alumni}}</li>
+                <li><u>Major:</u> {{major}}</li>
+                <li><u>Grad. Year:</u> {{year}}</li>
+                <li><u>Industry:</u> {{industry}}</li>
+                <li><u>Description:</u> {{description}}</li>
             </ul>
             <ul>
                 <li>
