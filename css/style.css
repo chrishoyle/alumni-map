@@ -1,0 +1,21 @@
+/* General */
+
+/*  body {margin: 0px auto;}
+  a {color: #333;}
+  small {padding: 10px 0px;}
+  #wrapper {margin: 0px auto; max-width: 600px;}
+  .button {padding: 5px 4px; background-color: #fff; font-size: 10px;}*/
+  .button:hover {cursor: hand;}
+  table:hover {cursor: hand;}
+  input:focus {outline: none;}
+
+/* Table */
+
+  .noMatches {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}
+
+/* Map */
+
+  .leaflet-popup-content {font-family: Merriweather;}
+  .leaflet-popup-content h2 {margin-bottom: 4px;}
+
+  img.petThumbs {height: 80px; width: 80px; border-radius: 1000px;}
