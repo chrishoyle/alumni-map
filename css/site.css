@@ -1,4 +1,5 @@
 
+a {text-decoration: none;color: #000;}
 
 #map {height: 400px; max-width: 530px; min-width: 300px; background: #DADADA; }
 #map a {border: none;}
@@ -6,6 +7,7 @@ h1{padding-bottom: 50px;}
 u {text-decoration: none;border-bottom: 4px solid black;}​
 
 .container {margin: 0px 0px;}
+button{margin-top:20px;border: none;border-radius: 3px;padding: 10px;background-color: #000;color:#fff;}
 #tableFilter{margin-top: 20px;}
 
 
@@ -16,7 +18,7 @@ u {text-decoration: none;border-bottom: 4px solid black;}​
 #rightSide {height: 400px; max-width: 350px; width: 100%; float: right; padding-top: 5px;margin-right: 70px;}
 #selectedSpot {display: none;}
 #latestSpot ul, #selectedSpot ul {list-style: none; margin-top: 12px 0px; padding: 0px;}
-.noMatches {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}
+.noResults {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}
 
 #info p {font-size: 14px; padding: 4px; line-height: 19px; font-weight: 300;}
 #info {border-top: 4px #F8F8F8 solid;}

@@ -18,13 +18,15 @@
 <body>
     <div class="container">
     <div id="wrapper">
-        <h1><u>W&M Alumni Startups</u></h1>
+        <h1><a href="#"><u>W&M Alumni Startups</u></a></h1>
       
         <div class="container">
             <div id="rightSide">
                 <div id="instructions">
-                     <h4 class="fauxButton">W&M has many startups and counting</h4>
-                     <p>Click on a startup below to learn more</p>
+                     <h3 class="fauxButton">W&M has <span id="theNumberofSpots"></span> startups and counting!</h3>
+                     <p>This app uses this <u><a href="https://docs.google.com/spreadsheets/d/1rcXF17V1Fq_z6-7tfirM095dLtd5gLsGpLhz6yhxvBo/edit#gid=0">google sheet</a></u> as a database</p>
+                     <p>Click on a startup to learn more or click the button below </p>
+                     <center><button id="randomButton">Random startup</button></center>
                 </div>
                 <div id="selectedSpot"></div>
             </div>
@@ -34,8 +36,7 @@
             <div class="col-lg-6">
         
                 <input id="tableFilter" type="text" class="form-control" placeholder="Search ...">
-           
-                <span class="noMatches">no matches</span>
+                <span class="noResults">no results</span>
 
             </div>
 
@@ -82,7 +83,7 @@
     </script>
 
     <script id="theNumberofSpots" type="text/html">
-        <p><strong><span class="red-text">{{numberOfSpots}}</span> alumni startups!</p>
+        <span>{{numberOfSpots}}</span>
     </script>
 
     <script id="selectedSpot" type="text/html">
@@ -107,92 +108,6 @@
         {{/rows}}
     </script>
 
-    <script type="text/javascript">
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var gData
-            var URL = "1rcXF17V1Fq_z6-7tfirM095dLtd5gLsGpLhz6yhxvBo"
-                Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true })
-        })
-
-        function showInfo(gData) {
-            tableOptions = {
-                "data": gData,
-                "tableDiv": "#alumniTable",
-                "filterDiv": "#tableFilter"
-            }
-
-            // table, and search bar
-            Sheetsee.makeTable(tableOptions)
-            Sheetsee.initiateTableFilter(tableOptions)
-
-            // create geoJSON with coordinates and other
-            // useful bits from the original data
-            var optionsJSON = ["company","logo", "alumni","year", "city", "rowNumber"]
-            var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
-
-            // create map, tilelayer (map background), markers and popups
-            var map = Sheetsee.loadMap("map")
-            Sheetsee.addTileLayer(map, 'jllord.n7aml2bc')
-            var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{ company }}</h2>", true)
-
-            // when someone clicks on a row, highlight it and
-            // re-center the map
-            // TODO show popup, change marker color
-            $('#instructions').css("display", "inline")
-            $('.spotRow').live("click", function(event) {
-                $('.spotRow').removeClass("selectedRow")
-                var rowNumber = $(this).closest("tr").attr("id")
-                $('#' + rowNumber).addClass("selectedRow")
-                var dataElement = Sheetsee.getMatches(gData, rowNumber, "rowNumber")
-                var selectedSpot = Sheetsee.ich.selectedSpot({
-                    rows: dataElement
-                })
-                $('#instructions').css("display", "none")
-                $('#selectedSpot').html(selectedSpot).css("display", "inline")
-                var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-                map.setView(selectedCoords, 9)
-            })
-
-
-            // Add click listener to the markerLayer
-            markerLayer.on('click', function(e) {
-                // clear any selected rows
-                $('.spotRow').removeClass("selectedRow")
-                // get row number of selected marker
-                var rowNumber = e.layer.feature.opts.rowNumber
-                // find that row in the table and make consider it selected
-                $('#' + rowNumber).addClass("selectedRow")
-                // using row number, get the data for the selected spot
-                var dataElement = Sheetsee.getMatches(gData, rowNumber.toString(), "rowNumber")
-                // take those details and re-write the selected spot section
-                var selectedSpot = Sheetsee.ich.selectedSpot({
-                    rows: dataElement
-                })
-                // center the map on the selected element
-                map.panTo([dataElement[0].lat, dataElement[0].long])
-                // update the spot listing
-                $('#instructions').css("display", "none")
-                $('#selectedSpot').html(selectedSpot).css("display", "inline")
-            })
-
-
-            // find total number of spots added
-            var theNumberofSpots = Sheetsee.ich.theNumberofSpots({
-                numberOfSpots: gData.length
-            })
-            $('#theNumberofSpots').html(theNumberofSpots)
-
-            if(window.location.hash) {
-                $('#tableFilter').val(window.location.hash.substring(1)).keyup()
-                $('.spotRow').first().click()
-            }
-        }
-
-        $(document).on('keyup', '#tableFilter', function() {
-            window.location.hash = $(this).val()
-            $('.spotRow').first().click()
-        })
-    </script>
+    <script type="text/javascript" src='js/mapdata.js'></script>
 </body>
 </html>
