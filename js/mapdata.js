@@ -41,6 +41,7 @@ function showInfo(gData) {
         $('#selectedSpot').html(selectedSpot).css("display", "inline")
         var selectedCoords = [dataElement[0].lat, dataElement[0].long]
         map.setView(selectedCoords, 9)
+        $('html, body').animate({scrollTop:0}, 'slow');
     })
 
 

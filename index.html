@@ -18,12 +18,13 @@
 <body>
     <div class="container">
     <div id="wrapper">
-        <h1><a href="#"><u>W&M Alumni Startups</u></a></h1>
+        
       
         <div class="container">
+            <h1><a href="#"><u>W&M Alumni Startups</u></a></h1>
             <div id="rightSide">
                 <div id="instructions">
-                     <h3 class="fauxButton">W&M has <span id="theNumberofSpots"></span> startups and counting!</h3>
+                     <h2 class="fauxButton">W&M has <span id="theNumberofSpots"></span> startups and counting!</h2>
                      <p>This app uses this <u><a href="https://docs.google.com/spreadsheets/d/1rcXF17V1Fq_z6-7tfirM095dLtd5gLsGpLhz6yhxvBo/edit#gid=0">google sheet</a></u> as a database</p>
                      <p>Click on a startup to learn more or click the button below </p>
                      <center><button id="randomButton">Random startup</button></center>
@@ -31,56 +32,65 @@
                 <div id="selectedSpot"></div>
             </div>
             <div id="map"></div>
-        </div>
-     
-            <div class="col-lg-6">
+            <div style="max-width: 530px; min-width: 300px;">
         
                 <input id="tableFilter" type="text" class="form-control" placeholder="Search ...">
                 <span class="noResults">no results</span>
 
             </div>
-
-        <div class="container">
-            <div id="alumniTable"></div>
         </div>
+     
+            
+
+            <div id="alumniTable"></div>
+
+        
     </div>
 
     <script id="alumniTable" type="text/html">
-    
-            <table class="table table-hover table-condensed">
-                <thead>
+        <section>
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead>
                 <tr>
-                    <th style="width: 10%">Logo</th>
-                    <th style="width: 10%">Startup</th>
-                    <th style="width: 10%">Founder</th>
-                    <th style="width: 15%">Graduation Year</th>
-                    <th style="width: 15%">City</th>
-                    <th style="width: 10%">State</th>
-                    <th style="width: 10%">Industry</th>
-                    <th style="width: 10%">Links</th>
+                  <th>Logo</th>
+                    <th>Startup</th>
+                    <th>Founder</th>
+                    <th>Year</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Industry</th>
+                    <th>Links</th>
                 </tr>
-                </thead>
-                <tbody>
-                {{#rows}}
-                    <tr id="{{rowNumber}}" class="spotRow">
-                        <td style="width: 10%"><img src={{logo}} height="42" width="42"></td>
-                        <td style="width: 10%">{{company}}</td>
-                        <td style="width: 10%">{{alumni}}</td>
-                        <td style="width: 15%">{{year}}</td>
-                        <td style="width: 15%">{{city}}</td>
-                        <td style="width: 10%">{{state}}</td>
-                        <td style="width: 10%">{{industry}}</td>
-                        <td style="width: 10%">
-                             <a id="angellist" href="https://angel.co/{{company}}" target="_blank"><i class="fa fa-angellist fa-2x"></i></a>
-                          
-                             <a id="link" href="{{website}}" target="_blank"><i class="fa fa-link fa-2x"></i></a>
-                        </td>
-                    </tr>
-                {{/rows}}
-                </tbody>
+              </thead>
             </table>
-    
+          </div>
+          <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                {{#rows}}
+                <tr id="{{rowNumber}}" class="spotRow">
+                    
+                  <td ><img src={{logo}} height="42" width="42"></td>
+                    <td>{{company}}</td>
+                    <td>{{alumni}}</td>
+                    <td>{{year}}</td>
+                    <td>{{city}}</td>
+                    <td>{{state}}</td>
+                    <td>{{industry}}</td>
+                    <td>
+                         <a id="angellist" href="https://angel.co/{{company}}" target="_blank"><i class="fa fa-angellist fa-2x"></i></a>
+                      
+                         <a id="link" href="{{website}}" target="_blank"><i class="fa fa-link fa-2x"></i></a>
+                    </td>
+                </tr>
+                {{/rows}}
+              </tbody>
+            </table>
+          </div>
+        </section>
     </script>
+
 
     <script id="theNumberofSpots" type="text/html">
         <span>{{numberOfSpots}}</span>
