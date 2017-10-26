@@ -19,7 +19,7 @@ button:hover { transform: scale(1.1); }
 .scroll {height: 600px;overflow: auto;display: inline-block;}
 .leaflet-popup-content h2 {font-family: Lato; font-size: 14px; text-transform: uppercase;}
 
-#rightSide {height: 400px; max-width: 350px; width: 100%; float: right;padding: 15px;margin-right:100px;margin-bottom: 50px}
+#rightSide {height: 400px; max-width: 350px; width: 100%;padding-left: 100px; float: right;padding: 15px;margin-right:50px;margin-bottom: 50px}
 #selectedSpot {display: none;}
 #latestSpot ul, #selectedSpot ul {list-style: none; margin-top: 12px 0px; padding: 0px;}
 .noResults {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}
