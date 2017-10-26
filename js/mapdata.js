@@ -77,7 +77,7 @@ function showInfo(gData) {
         }
         
     })
-    map.setView([39.8283,-98.5795], 3)
+    map.setView([39.8283,-98.5795], 4)
 
     $('#thestartupCount').html(thestartupCount)
 
