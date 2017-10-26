@@ -1,21 +1,25 @@
 
-a {text-decoration: none;color: #000;}
+h1{padding-bottom: 50px;font-size: 30px}
 
-#map {height: 400px; max-width: 530px; min-width: 300px; background: #DADADA; }
-#map a {border: none;}
-h1{padding-bottom: 50px;}
+a {text-decoration: none!important;color: #000!important;}
+b{color: #115740;font-size: 36px;}
 u {text-decoration: none;border-bottom: 4px solid black;}​
 
 .container {margin: 0px 0px;}
-button{margin-top:20px;border: none;border-radius: 3px;padding: 10px;background-color: #000;color:#fff;}
+#wrapper {margin: 0px auto; max-width: 900px; padding-top: 40px; margin-left: 40px; padding-right: 30px !important;}
+
+button{margin-top:20px;border: none;border-radius: 3px;padding: 10px;background-color: #115740;color:#fff;}
+button:hover { transform: scale(1.1); }
+
+
+#map {height: 400px; max-width: 530px; min-width: 300px; background: #DADADA;padding: 20px; }
+#map a {border: none;}
+
 #tableFilter{margin-top: 20px;}
-
-
-#wrapper {margin: 0px auto; max-width: 900px; padding-top: 40px; margin-left: 40px;}
 .scroll {height: 600px;overflow: auto;display: inline-block;}
 .leaflet-popup-content h2 {font-family: Lato; font-size: 14px; text-transform: uppercase;}
 
-#rightSide {height: 400px; max-width: 350px; width: 100%; float: right; padding-top: 5px;margin-right: 70px;}
+#rightSide {height: 400px; max-width: 350px; width: 100%; float: right;padding: 15px;margin-right:100px;margin-bottom: 50px}
 #selectedSpot {display: none;}
 #latestSpot ul, #selectedSpot ul {list-style: none; margin-top: 12px 0px; padding: 0px;}
 .noResults {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}
@@ -75,7 +79,7 @@ th {
 th{
   padding: 20px 15px;
   text-align: left;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 12px;
   text-transform: uppercase;
 }
@@ -87,11 +91,38 @@ td{
   border-bottom: solid 1px rgba(255,255,255,0.1);
 }
 
+#details{
+	font-size: 15px;
+}
 
 #alumniTable{
 	width: 1050px;
 }
 
+.sheet{
+	font-style: italic;
+}
+.sheet:hover{
+	background-color: #115740;
+	color: #fff !important;
+	padding: 4px;
+	border-radius: 3px;
+}
+
+#eweek{
+	text-align: center;color: #B9975B;margin-right: 50px;padding-bottom: 20px;
+}
+#eweek span:hover{ transform: scale(1.1); }
+
+
+/* follow me template */
+.footer {
+  margin-top: 40px;
+  padding: 10px;
+  clear: left;
+  text-align: center;
+  font-size: 12px;
+}
 
 
 /* for custom scrollbar for webkit browser*/
@@ -104,5 +135,14 @@ td{
 } 
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+
+::selection {
+  background: #115740; /* WebKit/Blink Browsers */
+  color: #fff;
+}
+::-moz-selection {
+  background: #115740; /* Gecko Browsers */
+  color: #fff;
 }
 
